@@ -23,4 +23,6 @@ def test_transactions_by_phone_numbers(num_operations_list) -> None:
             "Сумма операции с округлением": 815.68,
         },
     ]
-    assert transactions_by_phone_numbers(num_operations_list) == json.dumps(result, ensure_ascii=False)
+    assert transactions_by_phone_numbers(num_operations_list) == json.dumps(
+        result, ensure_ascii=False
+    )

@@ -39,13 +39,17 @@ def test_filter_date_operations(transactions: pd.DataFrame) -> None:
     ],
 )
 @patch("src.utils.datetime")
-def test_get_greeting(mocked_datetime: datetime, now_datetime: datetime, expected_greeting: str) -> None:
+def test_get_greeting(
+    mocked_datetime: Any, now_datetime: Any, expected_greeting: str
+) -> None:
     mocked_datetime.now.return_value = now_datetime
     assert greeting_user() == expected_greeting
 
 
 def test_operations_cards(transactions: pd.DataFrame) -> None:
-    assert operations_cards(transactions) == [{"last_digits": "7197", "total_spent": 600.00, "cashback": 6.00}]
+    assert operations_cards(transactions) == [
+        {"last_digits": "7197", "total_spent": 600.00, "cashback": 6.00}
+    ]
 
 
 def test_top_five_transactions(small_operations: pd.DataFrame) -> None:
@@ -62,5 +66,7 @@ def test_top_five_transactions(small_operations: pd.DataFrame) -> None:
 @patch("requests.get")
 def test_stock_prices(mock_convert: Any):
     mock_convert.return_value.status_code = 200
-    mock_convert.return_value.json.return_value = {"data": [{"symbol": "AAPL", "close": 1.0}]}
+    mock_convert.return_value.json.return_value = {
+        "data": [{"symbol": "AAPL", "close": 1.0}]
+    }
     assert stock_prices() == [{"stock": "AAPL", "price": 1.0}]
