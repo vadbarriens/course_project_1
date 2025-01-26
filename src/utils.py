@@ -103,7 +103,7 @@ import requests  # noqa
 
 def currency_rates():
     # Пример запроса к API (замени на свой реальный URL)
-    response = requests.get(f"https://api.currencyapi.com/v3/latest?apikey={for_currency}")
+    response = requests.get(f"https://financialmodelingprep.com/api/v3/search?query=AA&apikey={for_currency}")
 
     # Проверка, что статус ответа 200 (OK)
     if response.status_code != 200:

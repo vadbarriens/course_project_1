@@ -8,7 +8,7 @@ from src.utils import (convert_timestamps_to_strings, currency_rates, filter_dat
 
 def web_main(date: str) -> json:
     """Возвращает JSON для главной Веб-страницы"""
-    operations = pd.read_excel("../data/operations.xlsx")
+    operations = pd.read_excel(r"C:\Users\burin87\PycharmProjects\Course_project\data\operations.xlsx")
     operations = filter_date_operations(operations, date)
     operations = convert_timestamps_to_strings(operations)
     result = {
