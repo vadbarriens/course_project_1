@@ -7,12 +7,8 @@ from src.services import transactions_by_phone_numbers
 from src.utils import get_data_from_excel
 from src.views import web_main
 
-transactions = get_data_from_excel(
-    r"C:\Users\burin87\PycharmProjects\Course_project\data\operations.xlsx"
-)
-transactions_df = pd.read_excel(
-    r"C:\Users\burin87\PycharmProjects\Course_project\data\operations.xlsx"
-)
+transactions = get_data_from_excel('data/operations.xlsx')
+transactions_df = pd.read_excel('data/operations.xlsx')
 
 
 def main(
